@@ -1,0 +1,21 @@
+{
+  "name": "DateRangePicker",
+  "homepage": "https://github.com/nerdynbirdy/DateRangePicker",
+  "authors": [
+    "nerdy birdy <nerdynbirdy@gmail.com>"
+  ],
+  "description": "DateRangePicker plugin",
+  "main": "compiledPicker.js",
+  "keywords": [
+    "dateRangePicker",
+    "datePicker"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

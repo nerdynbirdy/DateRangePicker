@@ -55,7 +55,7 @@ class MyDatePicker {
 		this.timeEnabled = config.timeEnabled || false;
 		this.submitButton = config.submitButton || false;
 		this.currentMonth = config.currentMonth || new Date().getMonth();
-		this.currentYear = config.currentYear || new Date.getFullYear();
+		this.currentYear = config.currentYear || new Date().getFullYear();
 		this.yearRange = config.yearRange;
 		this.infoLabel = config.label;
 		if (!this.yearRange) {

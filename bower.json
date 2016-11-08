@@ -4,7 +4,7 @@
   "authors": [
     "nerdy birdy <nerdynbirdy@gmail.com>"
   ],
-  "description": "DateRangePicker plugin",
+  "description": "Date Range Picker built in Javascript",
   "main": "compiledPicker.js",
   "keywords": [
     "dateRangePicker",

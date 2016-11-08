@@ -65,11 +65,12 @@ var MyDatePicker = function () {
 			this.currentMonth = config.currentMonth || new Date().getMonth();
 			this.currentYear = config.currentYear || new Date().getFullYear();
 			this.yearRange = config.yearRange;
-			this.infoLabel = config.label;
+			this.infoLabel = config.label || "Pick Date";
+			this.name = config.name || "DateRangePicker";
 			if (!this.yearRange) {
 				this.yearRange = {
-					pastYear: 2000,
-					futureYear: 2020
+					startYear: this.currentYear - 5,
+					endYear: this.currentYear + 5
 				};
 			}
 			if (config.defaultDate) {
@@ -147,14 +148,15 @@ var MyDatePicker = function () {
 		key: 'submit',
 		value: function submit() {
 			var res = {};
+			res[this.name] = {};
 			if (this.firstDate) {
-				res.firstDate = this.getFullDate(this.firstDate, this.firstTime);
+				res[this.name].firstDate = this.getFullDate(this.firstDate, this.firstTime);
 			}
 			if (this.secondDate) {
-				res.secondDate = this.getFullDate(this.secondDate, this.secondTime);
-				res = this.sortDates(res);
+				res[this.name].secondDate = this.getFullDate(this.secondDate, this.secondTime);
+				res[this.name] = this.sortDates(res[this.name]);
 			}
-			if (Object.keys(res).length && this.submitCallback && typeof this.submitCallback === "function" && !this.rangeInProgress) {
+			if (Object.keys(res[this.name]).length && this.submitCallback && typeof this.submitCallback === "function" && !this.rangeInProgress) {
 				this.submitCallback(res);
 				this.hideCalender();
 			}
@@ -556,7 +558,7 @@ var MyDatePicker = function () {
 				}
 				infoElement.appendChild(infoDateUl);
 			} else {
-				infoElement.innerHTML = this.infoLabel || "Pick Date";
+				infoElement.innerHTML = this.infoLabel;
 				return infoElement;
 			}
 
@@ -812,7 +814,7 @@ var MyDatePicker = function () {
 			dropContent = this.create("div", {
 				class: "nnb-dropdown-content"
 			});
-			for (i = this.yearRange.pastYear; i <= this.yearRange.futureYear; i++) {
+			for (i = this.yearRange.startYear; i <= this.yearRange.endYear; i++) {
 				var _a = this.create("a", {
 					href: "javascript:void(0)"
 				}, i);

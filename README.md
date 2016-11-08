@@ -3,7 +3,7 @@ Date Range Picker plugin build for web apps. This plugin is written in ES6 and c
 
 ## Getting Started
 
-You can bower install the plugin using command  - "bower install nnbDateRangePicker"
+You can bower install the plugin using command  - "bower install DateRangePicker"
 
 or you can simply download the following files and include them in your project - 
 * compiledPicker.js
